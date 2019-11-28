@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.vue.mapper.GameMapper">
+	<select id="queryList" resultType="com.fh.vue.entity.Game">
+		select * from gameVue
+	</select>
+
+	<insert id="addGame" parameterType="com.fh.vue.entity.Game">
+		insert into gameVue (name,price,account,showTime) values (#{name},#{price},#{account},#{showTime})
+	</insert>
+
+	<update id="updateGame" parameterType="com.fh.vue.entity.Game">
+		update gameVue set name=#{name},price=#{price},account=#{account} where id=#{id}
+	</update>
+
+	<delete id="deleteGame" parameterType="int">
+		delete from gameVue where id=#{id}
+	</delete>
+</mapper>
